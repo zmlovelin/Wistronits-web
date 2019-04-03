@@ -1,0 +1,24 @@
+.from-con {
+  margin: 20px;
+  .from-main {
+    display: flex;
+    .from-label {
+      margin: 10px;
+      width: 140px;
+      text-align: end;
+    }
+    .from-value {
+      margin: 10px;
+    }
+    .zm-form-error-async-msg, .zm-form-error-rule-msg {
+      margin: 10px 0;
+      min-width: 140px;
+      display: inline-block;
+    }
+  }
+}
+
+input {
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}

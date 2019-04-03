@@ -1,0 +1,21 @@
+.common-btn {
+  width: 90px;
+  height: 30px;
+  //background: red;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 20px;
+  text-align: center;
+}
+
+.btn-g {
+  background: url("../../../../assets/img/login-bg.png");
+  background-size: cover;
+  background-position: left top;
+}
+
+.btn-r {
+  background: url("../../../../assets/img/login_left.png");
+  background-size: cover;
+  background-position: left top;
+}

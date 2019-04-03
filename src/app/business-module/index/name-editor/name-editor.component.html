@@ -1,0 +1,16 @@
+<form [formGroup]="profileForm">
+
+  <label>
+    First Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <button type="submit" (click)="submit()">
+    保存
+  </button>
+</form>

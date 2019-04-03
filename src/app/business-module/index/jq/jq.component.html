@@ -1,0 +1,16 @@
+<div>
+  <div style="margin: 20px">
+    <zm-from-group [column]="formColumn" (formInstance)="formInstance($event)"></zm-from-group>
+
+    <button class="link-button" nz-button nzType="primary" style="margin-right: 20px"
+            [disabled]="!formStatus.getValid()"
+            (click)="addWorkTask()">保存
+    </button>
+  </div>
+  <!--<div class="common-btn btn-g" [class.btn-r]="isShow" (click)="btnClick()">嘎嘎</div>-->
+  <!--<div class="common-btn">哈哈</div>-->
+  <!--<div class="common-btn">嘿嘿</div>-->
+  <!--<div class="common-btn">嘻嘻</div>-->
+  <!--<div class="common-btn">哑哑</div>-->
+</div>
+

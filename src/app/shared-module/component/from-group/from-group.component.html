@@ -1,0 +1,37 @@
+<div class="from-con">
+  <p>
+    响应式表单
+  </p>
+  <div>
+    <form [formGroup]="formGroup">
+      <ng-container *ngFor="let col of column">
+        <div class="from-main">
+          <div class="from-label">
+            <span style="display:inline-block;width: 5px;"><em *ngIf="col.require" style="color: red;">*</em></span>
+            {{col.label}}
+          </div>
+          <ng-container [ngSwitch]="col.type">
+            <div class="from-value">
+              <input *ngSwitchCase="'input'"
+                     [type]="col.inputType || 'text'" formControlName="{{col.key}}"
+                     [class.xc-form-error]="formGroup.controls[col.key].dirty&&formGroup.controls[col.key].invalid"
+                     (ngModelChange)="modelChange(formGroup.controls, $event, col)"
+              />
+            </div>
+            <div style="color: red"  *ngIf="formGroup.controls[col.key].dirty">
+              <div class="zm-form-error-rule-msg" *ngFor="let ruleItem of col.rule ">
+                <div *ngIf="formGroup.controls[col.key].hasError(ruleItem.code)">{{ruleItem.msg}}</div>
+              </div>
+              <ng-container *ngFor="let asyncRule of col.asyncRules">
+                <div class="zm-form-error-async-msg" *ngIf="formGroup.controls[col.key].hasError(asyncRule.asyncCode)">
+                  <span>{{asyncRule.msg}}</span>
+                </div>
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+
+    </form>
+  </div>
+</div>

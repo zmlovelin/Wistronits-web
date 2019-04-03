@@ -1,0 +1,36 @@
+
+.common-btn {
+  margin: 5px 0;
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 4px 1px;
+  border: 1px solid #f39c50;
+  width: 86px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(#f8c65c, #ec6240);
+  background: -o-linear-gradient(#f8c65c, #ec6240);
+  background: -moz-linear-gradient(#f8c65c, #ec6240);
+  background: linear-gradient(#f8c65c, #ec6240);
+  outline: none;
+  cursor: pointer;
+}
+.common-btn-zm {
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 4px 1px;
+  border: 1px solid #cf4d29;
+  width: 86px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 5px;
+  background: -webkit-linear-gradient(#f37938, #ec5047);
+  background: -o-linear-gradient(#f37938, #ec5047);
+  background: -moz-linear-gradient(#f37938, #ec5047);
+  background: linear-gradient(#f37938, #ec5047);
+  outline: none;
+  cursor: pointer;
+}

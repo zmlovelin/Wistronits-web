@@ -1,0 +1,19 @@
+
+<div style="display: flex">
+  <ul nz-menu [nzMode]="'vertical'" style="width: 240px; flex-basis: 200px">
+    <li nz-submenu routerLink="index/jq">
+      <span title ><i nz-icon type="mail"></i> 响应式表单 One</span>
+    </li>
+    <li nz-submenu routerLink="open-model">
+      <span title ><i nz-icon type="appstore"></i> 模态框 Two</span>
+    </li>
+    <li nz-submenu routerLink="table">
+      <span title ><i nz-icon type="appstore"></i> table表格 Three</span>
+    </li>
+  </ul>
+  <div class="ly-con">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>
+
