@@ -1,24 +1,71 @@
-<p>
-  <nz-table #basicTable [nzData]="dataSet">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Address</th>
-      <th>Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let data of basicTable.data">
-      <td>{{data.name}}</td>
-      <td>{{data.age}}</td>
-      <td>{{data.address}}</td>
-      <td>
-        <a>{{data.name}}</a>
-        <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
-      </td>
-    </tr>
-    </tbody>
-  </nz-table>
-</p>
+<div>
+    <nz-table #nzTable [nzData]="dataSet">
+        <thead>
+        <tr>
+            <ng-container *ngFor="let config of tableConfig.columnConfig let index = index">
+                <ng-container [ngSwitch]="config.type">
+                    <ng-container *ngSwitchDefault>
+                        <th  style="user-select:none;position: relative">
+                            <!--{{config.title}}-->
+                            <span style="display: inline-block;margin-top: 5px" class="table-text-td"
+                                  [title]="config.title">{{config.title}}</span>
+                            <ng-template [ngTemplateOutlet]="config.template"></ng-template>
+                        </th>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let data of nzTable.data;let index = index">
+            <tr>
+                <ng-template [ngTemplateOutlet]="tdTemplate"></ng-template>
+            </tr>
+        </ng-container>
+
+    </nz-table>
+
+
+</div>
+<!--td模版-->
+<ng-template #tdTemplate let-columnConfig="columnConfig" let-childData="childData" let-fIndex="fIndex"
+             let-sIndex="sIndex">
+    <ng-container *ngFor="let config of columnConfig">
+        <ng-container [ngSwitch]="config.type">
+            <td [nzShowExpand]="childData[config.expendDataKey]&&childData[config.expendDataKey].length>0"
+                *ngSwitchCase="'expend'" [(nzExpand)]="childData.expand"
+            ></td>
+            <td *ngSwitchCase="'select'" nzShowCheckbox [(nzChecked)]="childData.checked"></td>
+            <ng-container *ngSwitchCase="'serial-number'">
+         <span class="table-text-td" style="margin-top: 5px;"
+               [title]="(sIndex>-1)?(fIndex+'-'+(sIndex+1)):fIndex">{{(sIndex>-1)?(fIndex+'-'+(sIndex+1)):fIndex}}</span>
+            </ng-container>
+            <ng-container *ngSwitchDefault>
+                <td *ngIf="!config.hidden" [(nzExpand)]="childData.expand">
+                    <ng-container *ngIf="!config.key">
+                        <ng-container *ngFor="let item of tableConfig.operation;let index = index">
+               <span style="color: #1890ff; cursor: pointer;margin-right: 10px;"
+                     nz-tooltip [nzTitle]="item.text">
+                  <i class="icon-fiLink iconfont" [ngClass]="item.className" style=""></i>
+                </span>
+                        </ng-container>
+                    </ng-container>
+                </td>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ng-template>
+
+<!--每行的模板-->
+<ng-template #trTemplate let-columnConfig="columnConfig" let-data="data" let-fIndex="fIndex">
+    <ng-container *ngFor="let childData of data[tableConfig.columnConfig[0].expendDataKey] let sIndex = index">
+
+        <tr [nzExpand]="data.expand">
+            <ng-template [ngTemplateOutlet]="tdTemplate"
+                         [ngTemplateOutletContext]="{columnConfig:columnConfig,childData:childData,fIndex:fIndex,sIndex:sIndex }"></ng-template>
+        </tr>
+        <ng-template *ngIf="childData[tableConfig.columnConfig[0].expendDataKey]" [ngTemplateOutlet]="trTemplate"
+                     [ngTemplateOutletContext]="{columnConfig:tableConfig.columnConfig,data:childData,fIndex:(fIndex)+'-'+(sIndex+1)}"></ng-template>
+    </ng-container>
+</ng-template>
+
