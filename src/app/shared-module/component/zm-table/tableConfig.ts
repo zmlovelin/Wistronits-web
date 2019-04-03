@@ -3,6 +3,7 @@ export class ColumnConfig {
   public type?: string;
   public key: string;
   public width?: number;
+  public class?: string;
 }
 
 export class Operation {
