@@ -6,6 +6,7 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FromGroupComponent} from './component/from-group/from-group.component';
 import { ZmTableComponent } from './component/zm-table/zm-table.component';
+import {TableService} from "./component/zm-table/table.service";
 
 const COMPONENT = [
   FromGroupComponent,
@@ -27,6 +28,9 @@ const COMPONENT = [
   exports: [
     NgZorroAntdModule,
     ...COMPONENT
+  ],
+  providers: [
+    TableService
   ]
 })
 export class SharedModuleModule {

@@ -18,22 +18,22 @@ export class TableComponent implements OnInit {
         this.data = [
             {
                 id: '1',
-                name: 'John Brown',
-                age: 32,
-                address: 'New York No. 1 Lake Park'
+                inspectionTaskName: 'lin',
+                inspectionTaskTime: 12,
+                inspectionTask: 'New York No. 1 Lake Park'
             },
             {
                 id: '2',
-                name: 'Jim Green',
-                age: 42,
-                address: 'London No. 1 Lake Park'
+                inspectionTaskName: 'ivan',
+                inspectionTaskTime: 30,
+                inspectionTask: 'New York No. 1 Lake Park'
             },
             {
                 id: '3',
-                name: 'Joe Black',
-                age: 32,
-                address: 'Sidney No. 1 Lake Park'
-            }
+                inspectionTaskName: 'Brown',
+                inspectionTaskTime: 40,
+                inspectionTask: 'New York No. 1 Lake Park'
+            },
         ];
     }
 
@@ -50,7 +50,10 @@ export class TableComponent implements OnInit {
                 { // 巡检任务名称
                     title: '巡检任务周期', key: 'inspectionTask', width: 200,
                 }
-            ]
+            ],
+            selectChange: (data) => {
+                console.log(data)
+            }
         }
     }
 }
