@@ -18,20 +18,47 @@ export class TableComponent implements OnInit {
         this.data = [
             {
                 id: '1',
-                inspectionTaskName: 'lin',
-                inspectionTaskTime: 12,
+                inspectionTaskName: '秋风',
+                inspectionTaskTime: 32,
+                inspectionUser: '秋风',
+                inspectionTaskState: '1',
+                inspectionTaskLeven: '紧急',
                 inspectionTask: 'New York No. 1 Lake Park'
             },
             {
                 id: '2',
-                inspectionTaskName: 'ivan',
+                inspectionTaskName: '梅西',
                 inspectionTaskTime: 30,
+                inspectionUser: '梅西',
+                inspectionTaskState: '1',
+                inspectionTaskLeven: '紧急',
                 inspectionTask: 'New York No. 1 Lake Park'
             },
             {
                 id: '3',
-                inspectionTaskName: 'Brown',
+                inspectionTaskName: 'ivan',
                 inspectionTaskTime: 40,
+                inspectionUser: 'ivan',
+                inspectionTaskState: '1',
+                inspectionTaskLeven: '紧急',
+                inspectionTask: 'New York No. 1 Lake Park'
+            },
+            {
+                id: '4',
+                inspectionTaskName: '游游',
+                inspectionTaskTime: 30,
+                inspectionUser: '游游',
+                inspectionTaskState: '1',
+                inspectionTaskLeven: '紧急',
+                inspectionTask: 'New York No. 1 Lake Park'
+            },
+            {
+                id: '5',
+                inspectionTaskName: 'ace',
+                inspectionTaskTime: 40,
+                inspectionUser: 'ace',
+                inspectionTaskState: '1',
+                inspectionTaskLeven: '紧急',
                 inspectionTask: 'New York No. 1 Lake Park'
             },
         ];
@@ -39,8 +66,9 @@ export class TableComponent implements OnInit {
 
     private initTableConfig() {
         this.tableConfig = {
+            scroll:{ x: '1150px' },
             columnConfig: [
-                // {type: 'select', fixedStyle: {fixedLeft: true, style: {left: '0px'}}, width: 62},
+                { type: 'select', width: 250, fixedLeft: 250},
                 { // 巡检任务名称
                     title: '巡检任务名称', key: 'inspectionTaskName', width: 200,
                 },
@@ -48,7 +76,16 @@ export class TableComponent implements OnInit {
                     title: '巡检任务时间', key: 'inspectionTaskTime', width: 200,
                 },
                 { // 巡检任务名称
-                    title: '巡检任务周期', key: 'inspectionTask', width: 200,
+                    title: '巡检责任人', key: 'inspectionUser', width: 200,
+                },
+                { // 巡检任务名称
+                    title: '巡检任务状态', key: 'inspectionTaskState', width: 200,
+                },
+                { // 巡检任务名称
+                    title: '巡检任务级别', key: 'inspectionTaskLeven', width: 200,
+                },
+                { // 巡检任务名称
+                    title: '描述', key: 'inspectionTaskR', width: 200,
                 }
             ],
             selectChange: (data) => {

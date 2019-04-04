@@ -1,9 +1,11 @@
 export class ColumnConfig {
-    public title: string;
-    public type?: string;
-    public key: string;
-    public width?: number;
+    public type?: string; // 类型
+    public title?: string; // 每列的标题
+    public key?: string;  // 每列的key
+    public searchKey?: string; // 用于查询
+    public width?: number; // 每列的宽度
     public template?: any;
+    public fixedLeft?: number;
     public disabled?: boolean;
 
 }
@@ -36,6 +38,7 @@ export class TableConfig {
     public leftBottomButtons?: [];
     public expendDataKey?: string;
     public selectChange?: any;
+    public scroll?: any;
 
 }
 

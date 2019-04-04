@@ -2,21 +2,26 @@
     <nz-table #nzTable
               nzShowSizeChanger
               [nzData]="dataSet"
+              [nzScroll]="tableConfig.scroll"
     >
         <thead>
         <tr>
-            <th
-                    nzShowCheckbox
-                    [(nzChecked)]="allChecked"
-                    [nzIndeterminate]="indeterminate"
-                    (nzCheckedChange)="checkAll($event)"
-            ></th>
             <ng-container *ngFor="let config of tableConfig.columnConfig let index = index">
                 <ng-container [ngSwitch]="config.type">
+                    <ng-container *ngSwitchCase="'select'">
+                        <th nzShowCheckbox
+                            nzLeft="0"
+                            nzWidth="{{config.width+'px'}}"
+                            [(nzChecked)]="allChecked"
+                            [nzIndeterminate]="indeterminate"
+                            (nzCheckedChange)="checkAll($event)"
+                        ></th>
+                    </ng-container>
                     <ng-container *ngSwitchDefault>
-                        <th  style="user-select:none;position: relative">
-                            <!--{{config.title}}-->
-                            <span style="display: inline-block;margin-top: 5px" class="table-text-td"
+                        <th nzLeft="{{config.fixedLeft}}"
+                            nzWidth="{{config.width+'px'}}"
+                            >
+                            <span
                                   [title]="config.title">{{config.title}}</span>
                             <ng-template [ngTemplateOutlet]="config.template"></ng-template>
                         </th>
@@ -27,10 +32,26 @@
         </thead>
         <tbody>
         <ng-container >
-            <tr *ngFor="let item of nzTable.data">
-                <td nzShowCheckbox [(nzChecked)]="item.checked" (nzCheckedChange)="refreshStatus()"></td>
-                <td *ngFor="let config of tableConfig.columnConfig">{{ item[config.key] }}</td>
-            </tr>
+            <ng-container *ngFor="let item of nzTable.data">
+                <tr >
+                    <!--<td nzShowCheckbox [(nzChecked)]="item.checked" (nzCheckedChange)="refreshStatus()"></td>-->
+                    <ng-container *ngFor="let config of tableConfig.columnConfig">
+                        <ng-container [ngSwitch]="config.type">
+                           <td *ngSwitchCase="'select'"
+                               nzLeft="0"
+                               nzShowCheckbox
+                               [(nzChecked)]="item.checked" (nzCheckedChange)="refreshStatus()"></td>
+                            <td *ngSwitchDefault>
+                                <span>
+                                    {{ item[config.key] }}
+                                </span>
+
+                            </td>
+                        </ng-container>
+
+                    </ng-container>
+                </tr>
+            </ng-container>
         </ng-container>
     </nz-table>
 
