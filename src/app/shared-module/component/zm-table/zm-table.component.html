@@ -2,8 +2,7 @@
     <nz-table #nzTable
               nzShowSizeChanger
               [nzData]="dataSet"
-              [nzScroll]="tableConfig.scroll"
-    >
+              [nzScroll]="tableConfig.scroll">
         <thead>
         <tr>
             <ng-container *ngFor="let config of tableConfig.columnConfig let index = index">

@@ -23,7 +23,7 @@ export class TableComponent implements OnInit {
                 inspectionUser: '秋风',
                 inspectionTaskState: '1',
                 inspectionTaskLeven: '紧急',
-                inspectionTask: 'New York No. 1 Lake Park'
+                inspectionTaskR: 'New York No. 1 Lake Park'
             },
             {
                 id: '2',
@@ -32,7 +32,7 @@ export class TableComponent implements OnInit {
                 inspectionUser: '梅西',
                 inspectionTaskState: '1',
                 inspectionTaskLeven: '紧急',
-                inspectionTask: 'New York No. 1 Lake Park'
+                inspectionTaskR: 'New York No. 1 Lake Park'
             },
             {
                 id: '3',
@@ -41,7 +41,7 @@ export class TableComponent implements OnInit {
                 inspectionUser: 'ivan',
                 inspectionTaskState: '1',
                 inspectionTaskLeven: '紧急',
-                inspectionTask: 'New York No. 1 Lake Park'
+                inspectionTaskR: 'New York No. 1 Lake Park'
             },
             {
                 id: '4',
@@ -50,7 +50,7 @@ export class TableComponent implements OnInit {
                 inspectionUser: '游游',
                 inspectionTaskState: '1',
                 inspectionTaskLeven: '紧急',
-                inspectionTask: 'New York No. 1 Lake Park'
+                inspectionTaskR: 'New York No. 1 Lake Park'
             },
             {
                 id: '5',
@@ -59,7 +59,7 @@ export class TableComponent implements OnInit {
                 inspectionUser: 'ace',
                 inspectionTaskState: '1',
                 inspectionTaskLeven: '紧急',
-                inspectionTask: 'New York No. 1 Lake Park'
+                inspectionTaskR: 'New York No. 1 Lake Park'
             },
         ];
     }
