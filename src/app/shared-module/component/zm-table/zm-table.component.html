@@ -9,16 +9,21 @@
                 <ng-container [ngSwitch]="config.type">
                     <ng-container *ngSwitchCase="'select'">
                         <th nzShowCheckbox
-                            nzLeft="0"
                             nzWidth="{{config.width+'px'}}"
+                            nzLeft="0"
+                            nzRight="{{config.fixedRight}}"
+                            [style.z-index]="config.fixedLeft || config.fixedRight ? 100 : 0"
                             [(nzChecked)]="allChecked"
                             [nzIndeterminate]="indeterminate"
                             (nzCheckedChange)="checkAll($event)"
                         ></th>
                     </ng-container>
                     <ng-container *ngSwitchDefault>
-                        <th nzLeft="{{config.fixedLeft}}"
-                            nzWidth="{{config.width+'px'}}"
+                        <th nzWidth="{{config.width+'px'}}"
+                            [style.min-width.px]="config.width"
+                            nzLeft="{{config.fixedLeft}}"
+                            nzRight="0"
+                            [style.z-index]="config.fixedLeft || config.fixedRight ? 100 : 0"
                             >
                             <span
                                   [title]="config.title">{{config.title}}</span>
@@ -31,23 +36,30 @@
         </thead>
         <tbody>
         <ng-container >
-            <ng-container *ngFor="let item of nzTable.data">
-                <tr >
+            <ng-container *ngFor="let data of nzTable.data">
+                <tr>
                     <!--<td nzShowCheckbox [(nzChecked)]="item.checked" (nzCheckedChange)="refreshStatus()"></td>-->
                     <ng-container *ngFor="let config of tableConfig.columnConfig">
                         <ng-container [ngSwitch]="config.type">
                            <td *ngSwitchCase="'select'"
                                nzLeft="0"
+                               nzRight="{{config.fixedRight}}"
                                nzShowCheckbox
-                               [(nzChecked)]="item.checked" (nzCheckedChange)="refreshStatus()"></td>
-                            <td *ngSwitchDefault>
-                                <span>
-                                    {{ item[config.key] }}
+                               [style.z-index]="config.fixedLeft || config.fixedRight ? 100 : 0"
+                               [(nzChecked)]="data.checked" (nzCheckedChange)="refreshStatus()"></td>
+                            <td *ngSwitchDefault
+                                nzLeft="{{config.fixedLeft}}"
+                                nzRight="0">
+                                <span>{{ data[config.key] }}</span>
+                            </td>
+                            <td *ngSwitchCase="'operation'"
+                                nzLeft="{{config.fixedLeft}}"
+                                nzRight="0">
+                                <span *ngFor="let item of config.operation" (click)="item.handle(data)">
+                                    {{item.textName}}
                                 </span>
-
                             </td>
                         </ng-container>
-
                     </ng-container>
                 </tr>
             </ng-container>

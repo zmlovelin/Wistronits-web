@@ -1,0 +1,9 @@
+:host::ng-deep .ant-table-scroll-position-middle .ant-table-td-left-sticky {
+  box-shadow: 6px 0 6px 0 rgba(0,0,0,.05) !important;
+}
+//:host::ng-deep .ant-table-scroll-position-left .ant-table-td-right-sticky+.ant-table-td-right-sticky {
+//  //box-shadow: none;
+//}
+:host::ng-deep .ant-table-row:last-child .ant-table-scroll-position-middle .ant-table-th-right-sticky {
+  box-shadow: -6px 0 6px 0 rgba(0,0,0,.05) !important;
+}

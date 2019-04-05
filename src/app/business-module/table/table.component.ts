@@ -66,9 +66,9 @@ export class TableComponent implements OnInit {
 
     private initTableConfig() {
         this.tableConfig = {
-            scroll:{ x: '1150px' },
+            scroll: {x: '1100px'},
             columnConfig: [
-                { type: 'select', width: 250, fixedLeft: 250},
+                {type: 'select', width: 50, fixedLeft: 50},
                 { // 巡检任务名称
                     title: '巡检任务名称', key: 'inspectionTaskName', width: 200,
                 },
@@ -85,11 +85,30 @@ export class TableComponent implements OnInit {
                     title: '巡检任务级别', key: 'inspectionTaskLeven', width: 200,
                 },
                 { // 巡检任务名称
-                    title: '描述', key: 'inspectionTaskR', width: 200,
+                    title: '描述', key: 'inspectionTaskR', width: 200
+                },
+                { // 巡检任务名称
+                    type: 'operation', title: '操作', width: 200, fixedRight: 200, operation: [
+                        {
+                            textName: '新增', handle: (event) => {
+                                console.log(event)
+                            }
+                        },
+                        {
+                            textName: '修改', handle: (event) => {
+                                console.log(event)
+                            }
+                        },
+                        {
+                            textName: '删除', handle: (event) => {
+                                console.log(event)
+                            }
+                        }
+                    ]
                 }
             ],
-            selectChange: (data) => {
-                console.log(data)
+            selectChange: (event) => {
+                console.log(event)
             }
         }
     }

@@ -6,13 +6,15 @@ export class ColumnConfig {
     public width?: number; // 每列的宽度
     public template?: any;
     public fixedLeft?: number;
+    public fixedRight?: number;
     public disabled?: boolean;
+    public operation?: Operation[];
 
 }
 
 export class Operation {
     public btnType?: string; // 按钮类型
-    public text: string; // 操作名称
+    public textName: string; // 操作名称
     public className?: string; // 样式的类名
     public iconClassName?: string; // 有图标样式的类名
     public canDisabled?: boolean; // 当为头部按钮时 按钮是否可以被禁用
@@ -27,7 +29,6 @@ export class TableConfig {
     constructor() {
         this.topButtons = [];
         this.columnConfig = [];
-        this.operation = [];
         this.leftBottomButtons = [];
         this.expendDataKey = 'expandData';
     }
