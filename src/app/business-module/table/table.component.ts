@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TableConfig} from "../../shared-module/component/zm-table/tableConfig";
+import {TableComponentService} from "../../shared-module/service/table-api-service/table.component.service";
 
 @Component({
     selector: 'app-table',
@@ -10,58 +11,64 @@ export class TableComponent implements OnInit {
     public data = [];
     public tableConfig: TableConfig;
 
-    constructor() {
+    constructor(
+        private $tableService: TableComponentService
+    ) {
     }
 
     ngOnInit() {
         this.initTableConfig();
-        this.data = [
-            {
-                id: '1',
-                inspectionTaskName: '秋风',
-                inspectionTaskTime: 32,
-                inspectionUser: '秋风',
-                inspectionTaskState: '1',
-                inspectionTaskLeven: '紧急',
-                inspectionTaskR: 'New York No. 1 Lake Park'
-            },
-            {
-                id: '2',
-                inspectionTaskName: '梅西',
-                inspectionTaskTime: 30,
-                inspectionUser: '梅西',
-                inspectionTaskState: '1',
-                inspectionTaskLeven: '紧急',
-                inspectionTaskR: 'New York No. 1 Lake Park'
-            },
-            {
-                id: '3',
-                inspectionTaskName: 'ivan',
-                inspectionTaskTime: 40,
-                inspectionUser: 'ivan',
-                inspectionTaskState: '1',
-                inspectionTaskLeven: '紧急',
-                inspectionTaskR: 'New York No. 1 Lake Park'
-            },
-            {
-                id: '4',
-                inspectionTaskName: '游游',
-                inspectionTaskTime: 30,
-                inspectionUser: '游游',
-                inspectionTaskState: '1',
-                inspectionTaskLeven: '紧急',
-                inspectionTaskR: 'New York No. 1 Lake Park'
-            },
-            {
-                id: '5',
-                inspectionTaskName: 'ace',
-                inspectionTaskTime: 40,
-                inspectionUser: 'ace',
-                inspectionTaskState: '1',
-                inspectionTaskLeven: '紧急',
-                inspectionTaskR: 'New York No. 1 Lake Park'
-            },
-        ];
+        this.$tableService.getTableList().subscribe(res => {
+            this.data = res['data'];
+            console.log(this.data);
+        })
+        // this.data = [
+        //     {
+        //         id: '1',
+        //         inspectionTaskName: '秋风',
+        //         inspectionTaskTime: 32,
+        //         inspectionUser: '秋风',
+        //         inspectionTaskState: '1',
+        //         inspectionTaskLeven: '紧急',
+        //         inspectionTaskR: 'New York No. 1 Lake Park'
+        //     },
+        //     {
+        //         id: '2',
+        //         inspectionTaskName: '梅西',
+        //         inspectionTaskTime: 30,
+        //         inspectionUser: '梅西',
+        //         inspectionTaskState: '1',
+        //         inspectionTaskLeven: '紧急',
+        //         inspectionTaskR: 'New York No. 1 Lake Park'
+        //     },
+        //     {
+        //         id: '3',
+        //         inspectionTaskName: 'ivan',
+        //         inspectionTaskTime: 40,
+        //         inspectionUser: 'ivan',
+        //         inspectionTaskState: '1',
+        //         inspectionTaskLeven: '紧急',
+        //         inspectionTaskR: 'New York No. 1 Lake Park'
+        //     },
+        //     {
+        //         id: '4',
+        //         inspectionTaskName: '游游',
+        //         inspectionTaskTime: 30,
+        //         inspectionUser: '游游',
+        //         inspectionTaskState: '1',
+        //         inspectionTaskLeven: '紧急',
+        //         inspectionTaskR: 'New York No. 1 Lake Park'
+        //     },
+        //     {
+        //         id: '5',
+        //         inspectionTaskName: 'ace',
+        //         inspectionTaskTime: 40,
+        //         inspectionUser: 'ace',
+        //         inspectionTaskState: '1',
+        //         inspectionTaskLeven: '紧急',
+        //         inspectionTaskR: 'New York No. 1 Lake Park'
+        //     },
+        // ];
     }
 
     private initTableConfig() {
