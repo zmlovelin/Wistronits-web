@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TableConfig} from "../../shared-module/component/zm-table/tableConfig";
 import {TableComponentService} from "../../shared-module/service/table-api-service/table.component.service";
+import {Result} from "../../shared-module/entity/Result";
 
 @Component({
     selector: 'app-table',
@@ -18,8 +19,8 @@ export class TableComponent implements OnInit {
 
     ngOnInit() {
         this.initTableConfig();
-        this.$tableService.getTableList().subscribe(res => {
-            this.data = res['data'];
+        this.$tableService.getTableList().subscribe((result: Result) => {
+            this.data = result.data;
             console.log(this.data);
         })
         // this.data = [
