@@ -8,6 +8,7 @@ import { MapComponent } from './map/map.component';
 import { JqComponent } from './jq/jq.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HeaderModule} from "zmlovelin";
 
 
 
