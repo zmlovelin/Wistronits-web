@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {FromConfig} from '../../../shared-module/component/from-group/from-config';
 import {FormOperate} from '../../../shared-module/component/from-group/form-opearte.service';
 import {FormControl} from '@angular/forms';
@@ -9,18 +9,25 @@ import {Observable} from 'rxjs';
   templateUrl: './jq.component.html',
   styleUrls: ['./jq.component.scss']
 })
-export class JqComponent implements OnInit {
+export class JqComponent implements OnInit, AfterViewInit {
+  // @ViewChild('MapComponent') public MapComponent: MapComponent;
   public isShow = false;
   formColumn: FromConfig[] = [];
   formStatus: FormOperate;
 
-  constructor() {
+  constructor(
+      private elementRef: ElementRef
+  ) {
   }
 
   ngOnInit() {
+    // 调用map组件的方法
+
     this.initColumn();
   }
+  ngAfterViewInit() {
 
+  }
   public btnClick() {
     // const dom = document.getElementsByClassName('btn-g')[0];
     // dom.removeAttribute('btn-g');
@@ -146,5 +153,9 @@ export class JqComponent implements OnInit {
   addWorkTask() {
     const data = this.formStatus.group.getRawValue();
     console.log(data);
+  }
+  edit() {
+    const d = this.elementRef.nativeElement
+    console.dir(d)
   }
 }

@@ -9,6 +9,10 @@ import { JqComponent } from './jq/jq.component';
 import { NameEditorComponent } from './name-editor/name-editor.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HeaderModule} from "zmlovelin";
+import { ViewChildComponent } from './view-child/view-child.component';
+import { ElementRefComponent } from './element-ref/element-ref.component';
+import { RoutingPathComponent } from './routing-path/routing-path.component';
+import { MyAnimationsComponent } from './my-animations/my-animations.component';
 
 
 
@@ -18,6 +22,10 @@ import {HeaderModule} from "zmlovelin";
     MapComponent,
     JqComponent,
     NameEditorComponent,
+    ViewChildComponent,
+    ElementRefComponent,
+    RoutingPathComponent,
+    MyAnimationsComponent,
   ],
   imports: [
     FormsModule,

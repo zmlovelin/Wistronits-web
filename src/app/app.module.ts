@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+
 import {NgZorroAntdModule, NZ_I18N, zh_CN} from 'ng-zorro-antd';
 import {AppComponent} from './app.component';
 
@@ -14,6 +14,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {SharedModuleModule} from './shared-module/shared-module.module';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 import {CommonUtil} from './shared-module/util/common-util';
+import {HttpClientModule} from "@angular/common/http";
+import {CoreModuleModule} from "./core-module/core-module.module";
 registerLocaleData(zh);
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -34,6 +36,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     /** 导入 ng-zorro-antd 模块 **/
     NgZorroAntdModule,
     BusinessModule,
+    CoreModuleModule,
     SharedModuleModule
   ],
   /** 配置 ng-zorro-antd 国际化（文案 及 日期） **/

@@ -5,17 +5,16 @@ import {Observable} from "rxjs";
 import {TABLE_LIST} from "./api-service-url";
 
 @Injectable()
-export class TableComponentService implements TableComponentInterface{
+export class TableComponentService implements TableComponentInterface {
     constructor(
         private $http: HttpClient
-    ){
+    ) {
 
     }
 
     getTableList(): Observable<Object> {
-        return this.$http.get(`${TABLE_LIST}`);;
+        return this.$http.get(`${TABLE_LIST}`);
     }
-
 
 
 }

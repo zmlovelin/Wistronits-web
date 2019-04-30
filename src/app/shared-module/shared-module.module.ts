@@ -8,7 +8,7 @@ import {FromGroupComponent} from './component/from-group/from-group.component';
 import { ZmTableComponent } from './component/zm-table/zm-table.component';
 import {TableService} from "./component/zm-table/table.service";
 import {TableComponentService} from "./service/table-api-service/table.component.service";
-import {HeaderModule} from "zmlovelin";
+import {HeaderModule, TilConfig} from "zmlovelin";
 
 const COMPONENT = [
   FromGroupComponent,
@@ -28,10 +28,14 @@ const SERVICE = [
     ReactiveFormsModule,
     NgZorroAntdModule,
     RouterModule,
-    HeaderModule
+    HeaderModule,
   ],
   bootstrap: [],
   exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
     NgZorroAntdModule,
     ...COMPONENT,
     HeaderModule

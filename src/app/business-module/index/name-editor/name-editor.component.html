@@ -1,16 +1,18 @@
-<form [formGroup]="profileForm">
 
-  <label>
-    First Name:
-    <input type="text" formControlName="firstName">
-  </label>
-
-  <label>
-    Last Name:
-    <input type="text" formControlName="lastName">
-  </label>
-
-  <button type="submit" (click)="submit()">
-    保存
-  </button>
-</form>
+<div>
+  <ul class='ul-box'>
+    <li class='list-item' *ngFor='let item of data let i =index'
+        (mousemove)='hoverLi(i)'
+        (mouseout)='hocerHide(i)'
+    >
+      <a href='javascript:;'>{{item.name}}</a>
+      <ul class='list-ul' *ngIf='i === isIndex' @fadeIn>
+        <li *ngFor='let d of item.hh'>
+          <img src='{{d.imgUrl}}' alt=''>
+          <p>{{d.title}}</p>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+<!--<app-my-animations></app-my-animations>-->

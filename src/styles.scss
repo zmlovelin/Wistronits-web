@@ -2,3 +2,23 @@
 [ant-click-animating-without-extra-node='true'] {
   position: static !important;
 }
+pre {
+  padding: 1px;
+  border: none;
+  height: 300px;
+  overflow: auto;
+  line-height: 1.45;
+  position: relative;
+  background: #F6F6F6;
+  code {
+    color: red;
+    textarea {
+      width: 90%;
+      display: inline-block;
+      height: 100px;
+      box-sizing: border-box;
+      border: none;
+      background: #F6F6F6;
+    }
+  }
+}

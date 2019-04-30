@@ -1,0 +1,48 @@
+li {
+  list-style: none;
+}
+.ul-box {
+  display: flex;
+  justify-content: space-between;
+  background: cornflowerblue;
+  .list-item {
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    cursor: pointer;
+    margin: 0 10px;
+    position: relative;
+    a {
+      color: #000;
+    }
+    .list-ul {
+      left: 0;
+      position: fixed;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      li {
+        height: 180px;
+        text-align: center;
+        padding: 20px;
+        img {
+          display: inline-block;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+@keyframes liShow {
+  0% {
+    height: 0px;
+  }
+  50% {
+    height: 200px;
+  }
+  100% {
+    height: auto;
+  }
+
+}
