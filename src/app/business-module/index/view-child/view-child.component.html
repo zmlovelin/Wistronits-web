@@ -1,0 +1,18 @@
+<div>
+    <p>通过ViewChild调用map组件的方法</p>
+    <app-map></app-map>
+    <pre>
+        <code>
+            <span>html： 此组件的页面需要引入组件 'app-map'</span>
+            <span> ts： @ViewChild(MapComponent) private childCmp: MapComponent;</span>
+            <span>调用组件的方法以及属性： this.childCmp.方法名或者是属性名</span>
+        </code>
+    </pre>
+</div>
+
+
+<ng-template #contentTemplate>
+    <div>
+        我是一个模版
+    </div>
+</ng-template>
