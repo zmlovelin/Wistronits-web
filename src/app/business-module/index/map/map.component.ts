@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {NzI18nService} from 'ng-zorro-antd';
 import {MapLanguageInterface} from '../../../../assets/i18n/map/map.language.interface';
 import jQ from 'jquery';
-import {TilConfig} from "zmlovelin";
 
 @Component({
     selector: 'app-map',
@@ -12,7 +11,6 @@ import {TilConfig} from "zmlovelin";
 export class MapComponent implements OnInit {
 
     cd = 'dd'
-    dd = new TilConfig();
     public language: MapLanguageInterface;
 
     constructor(
@@ -21,7 +19,6 @@ export class MapComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.dd.ds();
         const c = jQ('#ccc');
         c.css({'color': 'red', 'background': 'green'});
         // c.hide(1500)
